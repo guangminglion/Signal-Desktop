@@ -89,6 +89,9 @@
         id: function() {
             return this.model.id;
         },
+        initialize: function() {
+            this.listenTo(this.model, 'destroy', this.remove);
+        },
         render_attributes: function() {
             return {
               content: moment(this.model.get('received_at')).format('LLLL')
